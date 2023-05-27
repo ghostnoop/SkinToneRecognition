@@ -8,6 +8,7 @@ async def send_bytes_with_json():
 
     headers = {
         'Content-Type': 'image/jpeg',
+
     }
 
     # Create a client session
