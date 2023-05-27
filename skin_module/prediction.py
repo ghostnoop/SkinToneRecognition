@@ -28,11 +28,12 @@ class Prediction:
             pred, locs = Prediction.predict_one_image(img, self.clf, self.labels)
             if not locs:
                 print('no locs')
-                return
+                return {"message":None}
         except Exception as e:
             print(e)
             print("Skipping")
-            return
+
+            return {"message":None}
 
         return Prediction.mapping_results_with_entered_coords(Prediction.format_results(pred, locs), coords)
 

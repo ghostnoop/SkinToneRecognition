@@ -8,3 +8,4 @@ aiohttp~=3.8.3
 pydantic~=1.10.2
 python-multipart
 dlib
+scikit_learn==0.22.2.post1
