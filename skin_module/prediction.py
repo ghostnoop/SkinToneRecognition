@@ -7,7 +7,7 @@ import face_recognition
 import pandas as pd
 from face_recognition import face_locations
 
-from race_module.service import find_nearest_coordinates
+from skin_module.service import find_nearest_coordinates
 
 
 class Prediction:

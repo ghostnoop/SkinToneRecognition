@@ -1,7 +1,7 @@
 import aiohttp
 
 from models import Item
-from race_module.prediction import Prediction
+from skin_module.prediction import Prediction
 
 
 async def predict_service(item: Item, prediction: Prediction):
