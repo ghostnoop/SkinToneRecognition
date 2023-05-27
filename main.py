@@ -23,4 +23,4 @@ async def predict_endpoint(item: Item):
 
 
 if __name__ == "__main__":
-    uvicorn.run('main:app', host="0.0.0.0", port=8000, workers=10)
+    uvicorn.run('main:app', host="0.0.0.0", port=8585, workers=10)
