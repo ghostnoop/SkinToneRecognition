@@ -1,10 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
-from starlette.requests import Request
 
 from models import Item
-from race_module.prediction import Prediction
 from services import predict_service
+from skin_module.prediction import Prediction
 
 app = FastAPI()
 app.context = dict()
