@@ -17,10 +17,6 @@ async def send_bytes_with_json():
              {'left': 660, 'top': 217, 'right': 718, 'bottom': 292},
              {'left': 405, 'top': 198, 'right': 438, 'bottom': 249}]
 
-        body = {'link': 'https://358305.selcdn.ru/Asup_media/instagram/Cp-Fbe9opVf__1958692804.jpg',
-                'coordinates': [{'left': 111, 'top': 70, 'right': 162, 'bottom': 139},
-                                {'left': 65, 'top': 181, 'right': 116, 'bottom': 252}]}
-
         # Send the request
         async with session.post(url, headers=headers, json=body) as response:
             # Optionally, handle the response
