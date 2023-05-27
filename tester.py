@@ -18,6 +18,7 @@ async def send_bytes_with_json():
              {'left': 405, 'top': 198, 'right': 438, 'bottom': 249}]
 
         # Send the request
+        body={}
         async with session.post(url, headers=headers, json=body) as response:
             # Optionally, handle the response
             response_text = await response.text()
