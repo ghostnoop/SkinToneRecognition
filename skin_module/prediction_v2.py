@@ -2,7 +2,6 @@ from typing import List
 
 import cv2
 import numpy as np
-from retinaface import RetinaFace
 from deepface import DeepFace
 
 from skin_module.service import find_nearest_coordinates
