@@ -15,7 +15,7 @@ class Prediction:
         nparr = np.fromstring(img, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        prediction = DeepFace.analyze(color_img, silent=True, detector_backend='mtcnn')
+        prediction = DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
         return Prediction.mapping_results_with_entered_coords(Prediction.format_results(prediction), coords)
 
     @staticmethod
