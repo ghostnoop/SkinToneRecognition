@@ -28,8 +28,9 @@ class Prediction:
             k = face['region']
             coords = dict(left=k['x'], top=k['y'], right=k['x'] + k['w'], bottom=k['y'] + k['h'])
             t['key'] = coords
-            if race == 'white' and face["race"][race] >= 45:
-                t['value'] = face["race"][race]
+            race_value = face["race"][race]
+            if race in ('white','middle eastern','latino hispanic') and race_value >= 35:
+                t['value'] = race_value if face["race"][race] >= 60 else 60
                 print(face["race"][race])
             else:
                 print(race, face["race"][race])
