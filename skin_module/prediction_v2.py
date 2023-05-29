@@ -32,6 +32,7 @@ class Prediction:
                 t['value'] = face["race"][race]
                 print(face["race"][race])
             else:
+                print(race,face["race"][race])
                 t['value'] = 0
             coords_to_white.append(t)
 
