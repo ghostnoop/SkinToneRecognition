@@ -15,7 +15,7 @@ class Prediction:
         nparr = np.fromstring(img, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        prediction = DeepFace.analyze(color_img)
+        prediction = DeepFace.analyze(color_img, silent=True, detector_backend='mtcnn')
         return Prediction.mapping_results_with_entered_coords(Prediction.format_results(prediction), coords)
 
     @staticmethod
@@ -32,7 +32,7 @@ class Prediction:
                 t['value'] = face["race"][race]
                 print(face["race"][race])
             else:
-                print(race,face["race"][race])
+                print(race, face["race"][race])
                 t['value'] = 0
             coords_to_white.append(t)
 
