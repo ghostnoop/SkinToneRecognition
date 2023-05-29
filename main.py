@@ -1,3 +1,5 @@
+import time
+
 import uvicorn
 from fastapi import FastAPI
 
@@ -18,10 +20,14 @@ async def startup_event():
 
 @app.post("/predict")
 async def predict_endpoint(item: Item):
-    result = await predict_service(item, app.context['prediction'])
+    st = time.monotonic()
+    try:
+        result = await predict_service(item, app.context['prediction'])
+    except Exception as e:
+        print(e)
+        return {"message": None}
     print('-------')
-    print(result)
-    print(item.link)
+    print(item.link, 'time', time.monotonic() - st)
     print('-------')
     return result
 
