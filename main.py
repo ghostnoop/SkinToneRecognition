@@ -24,7 +24,7 @@ async def predict_endpoint(item: Item):
     try:
         result = await predict_service(item, app.context['prediction'])
     except Exception as e:
-        print(e)
+        print(e, '\n---', item.link)
         return {"message": None}
     print('-------')
     print(item.link, 'time', time.monotonic() - st)
