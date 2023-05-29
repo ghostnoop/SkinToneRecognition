@@ -3,7 +3,7 @@ from fastapi import FastAPI
 
 from models import Item
 from services import predict_service
-from skin_module.prediction import Prediction
+from skin_module.prediction_v2 import Prediction
 
 app = FastAPI()
 app.context = dict()
