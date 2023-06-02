@@ -18,7 +18,7 @@ class Prediction:
         color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         # try:
         # st = time.monotonic()
-        return DeepFace.analyze(color_img,silent=True, detector_backend='retinaface')
+        return DeepFace.analyze(color_img,actions=('race',),silent=True, detector_backend='retinaface')
         # print(time.monotonic()-st)
 
 
