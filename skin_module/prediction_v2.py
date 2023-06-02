@@ -11,11 +11,14 @@ class Prediction:
     def __init__(self):
         pass
 
-    def predict(self, img: bytes, coords: List[dict]):
+    def _predict(self, img: bytes):
         nparr = np.fromstring(img, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        prediction = DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
+        return DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
+
+    def predict(self, img: bytes, coords: List[dict]):
+        prediction = self._predict(img)
         return Prediction.mapping_results_with_entered_coords(Prediction.format_results(prediction), coords)
 
     @staticmethod
@@ -29,7 +32,7 @@ class Prediction:
             coords = dict(left=k['x'], top=k['y'], right=k['x'] + k['w'], bottom=k['y'] + k['h'])
             t['key'] = coords
             race_value = face["race"][race]
-            if race in ('white','middle eastern','latino hispanic') and race_value >= 35:
+            if race in ('white', 'middle eastern', 'latino hispanic') and race_value >= 35:
                 t['value'] = race_value if face["race"][race] >= 60 else 60
                 print(face["race"][race])
             else:
