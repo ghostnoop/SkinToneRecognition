@@ -1,3 +1,4 @@
+import time
 from typing import List
 
 import cv2
@@ -15,7 +16,15 @@ class Prediction:
         nparr = np.fromstring(img, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        return DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
+        # try:
+        # st = time.monotonic()
+        return DeepFace.analyze(color_img,silent=True, detector_backend='retinaface')
+        # print(time.monotonic()-st)
+
+
+        # except:
+        #     print('eeee')
+        #     return DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
 
     def predict(self, img: bytes, coords: List[dict]):
         prediction = self._predict(img)
