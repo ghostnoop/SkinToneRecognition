@@ -15,7 +15,8 @@ class Prediction:
     def _predict(self, img: bytes):
         nparr = np.fromstring(img, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        # color_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        color_img=img
         # try:
         # st = time.monotonic()
         try:
