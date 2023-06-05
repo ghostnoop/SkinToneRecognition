@@ -23,12 +23,7 @@ class Prediction:
         except Exception as e:
             print(e)
             return DeepFace.analyze(color_img,actions=('race',),align=False,silent=True, detector_backend='retinaface')
-        # print(time.monotonic()-st)
 
-
-        # except:
-        #     print('eeee')
-        #     return DeepFace.analyze(color_img, silent=True, detector_backend='retinaface')
 
     def predict(self, img: bytes, coords: List[dict]):
         prediction = self._predict(img)
