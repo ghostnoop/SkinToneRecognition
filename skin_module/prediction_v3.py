@@ -23,7 +23,7 @@ category_to_color = {'#373028': 'black', '#422811': 'black', '#513b2e': 'black',
 
 default_labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[:len(default_categories)]
 debug: bool = False
-categories: list[str] = default_categories
+categories: List[str] = default_categories
 cate_labels = default_labels
 for idx, ct in enumerate(categories):
     if not ct.startswith('#') and len(ct.split(',')) == 3:
